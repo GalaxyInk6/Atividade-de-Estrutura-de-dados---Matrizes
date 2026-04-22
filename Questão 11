@@ -1,1 +1,31 @@
+gabarito = []
+print("--- Cadastro do Gabarito ---")
+for i in range(10):
+    res = input(f"Resposta correta da questão {i+1} (a, b, c ou d): ").lower()
+    gabarito.append(res)
 
+matriz_respostas = []
+for i in range(5):
+    print(f"\n--- Respostas do Aluno {i+1} ---")
+    respostas_aluno = []
+    for j in range(10):
+        res = input(f"Aluno {i+1}, questão {j+1}: ").lower()
+        respostas_aluno.append(res)
+    matriz_respostas.append(respostas_aluno)
+
+resultado = []
+
+for i in range(5):
+    pontuacao = 0
+    for j in range(10):
+
+        if matriz_respostas[i][j] == gabarito[j]:
+            pontuacao += 1
+    resultado.append(pontuacao)
+
+print("\n" + "="*30)
+print("PONTUAÇÃO FINAL DOS ALUNOS")
+print("="*30)
+
+for i in range(5):
+    print(f"Aluno {i+1}: {resultado[i]} pontos")
