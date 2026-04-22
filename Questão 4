@@ -1,1 +1,25 @@
+matriz = []
+maior_valor = None
+posicao_linha = 0
+posicao_coluna = 0
 
+print("Digite os valores para uma matriz 4x4:")
+
+for i in range(4):
+    linha = []
+    for j in range(4):
+        valor = float(input(f"Elemento [{i}][{j}]: "))
+        linha.append(valor)
+
+        if maior_valor is None or valor > maior_valor:
+            maior_valor = valor
+            posicao_linha = i
+            posicao_coluna = j
+    matriz.append(linha)
+
+print("\nMatriz Digitada:")
+for linha in matriz:
+    print(linha)
+
+print(f"\nO maior valor é: {maior_valor}")
+print(f"Localização: Linha {posicao_linha}, Coluna {posicao_coluna}")
