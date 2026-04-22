@@ -1,1 +1,28 @@
+matriz = []
 
+print("Preencha a matriz 5x5:")
+for i in range(5):
+    linha = []
+    for j in range(5):
+        valor = float(input(f"Elemento [{i}][{j}]: "))
+        linha.append(valor)
+    matriz.append(linha)
+
+x = float(input("\nDigite o valor X para buscar na matriz: "))
+
+encontrado = False
+posicao = None
+
+for i in range(5):
+    for j in range(5):
+        if matriz[i][j] == x:
+            posicao = (i, j)
+            encontrado = True
+            break
+    if encontrado:
+        break
+
+if encontrado:
+    print(f"\nValor {x} encontrado na Linha {posicao[0]} e Coluna {posicao[1]}.")
+else:
+    print("\nNão encontrado.")
