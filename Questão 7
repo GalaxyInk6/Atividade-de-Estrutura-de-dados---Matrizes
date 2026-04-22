@@ -1,1 +1,35 @@
+matriz = []
+soma_impares = 0
+soma_linhas = [0, 0, 0]
+soma_colunas = [0, 0, 0]
 
+print("Digite os valores inteiros para a matriz 3x3:")
+
+for i in range(3):
+    linha = []
+    for j in range(3):
+        valor = int(input(f"Elemento [{i}][{j}]: "))
+        linha.append(valor)
+
+        if valor % 2 != 0:
+            soma_impares += valor
+
+        soma_linhas[i] += valor
+
+        soma_colunas[j] += valor
+
+    matriz.append(linha)
+
+print("\nMatriz Digitada:")
+for linha in matriz:
+    print(linha)
+
+print(f"\na) Soma dos números ímpares: {soma_impares}")
+
+print("\nb) Soma de cada coluna:")
+for j in range(3):
+    print(f"   Coluna {j}: {soma_colunas[j]}")
+
+print("\nc) Soma de cada linha:")
+for i in range(3):
+    print(f"   Linha {i}: {soma_linhas[i]}")
