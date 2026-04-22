@@ -1,1 +1,21 @@
+import random
 
+numeros_possiveis = list(range(100))
+
+selecionados = random.sample(numeros_possiveis, 25)
+
+cartela = []
+for i in range(0, 25, 5):
+
+    linha = selecionados[i:i+5]
+    cartela.append(linha)
+
+print("-" * 25)
+print("     CARTELA DE BINGO")
+print("-" * 25)
+
+for linha in cartela:
+
+    print("  ".join(f"{num:02}" for num in linha))
+
+print("-" * 25)
