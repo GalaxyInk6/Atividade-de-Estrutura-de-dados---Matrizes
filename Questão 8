@@ -1,1 +1,36 @@
+def verificar_quadrado_magico(matriz):
+    n = len(matriz)
 
+    soma_referencia = sum(matriz[0])
+
+    for i in range(n):
+        if sum(matriz[i]) != soma_referencia:
+            return False, "Linhas desiguais"
+
+    for j in range(n):
+        soma_coluna = sum(matriz[i][j] for i in range(n))
+        if soma_coluna != soma_referencia:
+            return False, "Colunas desiguais"
+
+    soma_diagonal_principal = sum(matriz[i][i] for i in range(n))
+    if soma_diagonal_principal != soma_referencia:
+        return False, "Diagonal principal desigual"
+
+    soma_diagonal_secundaria = sum(matriz[i][n - 1 - i] for i in range(n))
+    if soma_diagonal_secundaria != soma_referencia:
+        return False, "Diagonal secundária desigual"
+
+    return True, soma_referencia
+
+matriz_exemplo = [
+    [8, 1, 6],
+    [3, 5, 7],
+    [4, 9, 2]
+]
+
+eh_magico, resultado = verificar_quadrado_magico(matriz_exemplo)
+
+if eh_magico:
+    print(f"A matriz é um QUADRADO MÁGICO! A soma mágica é: {resultado}")
+else:
+    print(f"Não é um quadrado mágico. Motivo: {resultado}")
