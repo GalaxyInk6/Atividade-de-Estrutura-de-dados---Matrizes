@@ -1,1 +1,31 @@
+def ler_matriz(nome):
+    print(f"\nDigite os valores para a {nome}:")
+    matriz = []
+    for i in range(4):
+        linha = []
+        for j in range(4):
+            valor = float(input(f"{nome} [{i}][{j}]: "))
+            linha.append(valor)
+        matriz.append(linha)
+    return matriz
 
+
+matriz1 = ler_matriz("Matriz A")
+matriz2 = ler_matriz("Matriz B")
+
+
+matriz_c = []
+for i in range(4):
+    linha = []
+    for j in range(4):
+
+        if matriz1[i][j] > matriz2[i][j]:
+            linha.append(matriz1[i][j])
+        else:
+            linha.append(matriz2[i][j])
+    matriz_c.append(linha)
+
+
+print("\n--- Matriz Resultante (Maiores Valores) ---")
+for linha in matriz_c:
+    print(linha)
