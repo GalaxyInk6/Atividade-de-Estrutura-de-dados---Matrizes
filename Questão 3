@@ -1,1 +1,15 @@
+matriz = []
 
+for i in range(4):
+    linha = []
+    for j in range(4):
+
+        produto = i * j
+        linha.append(produto)
+    matriz.append(linha)
+
+
+print("Matriz (Produto de Linha x Coluna):")
+for linha in matriz:
+
+    print(" ".join(f"{item:2}" for item in linha))
