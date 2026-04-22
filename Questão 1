@@ -1,1 +1,31 @@
+gabarito = []
+print("--- Cadastro do Gabarito (10 questões) ---")
+for i in range(10):
+    resp = input(f"Questão {i + 1} (a, b, c, d ou e): ").lower()
+    gabarito.append(resp)
 
+resultados_finais = []
+
+for i in range(3):
+    print(f"\n--- Dados do Aluno {i + 1} ---")
+    matricula = int(input("Digite o número da matrícula: "))
+
+    nota = 0
+    respostas_aluno = []
+
+    for j in range(10):
+        resp_aluno = input(f"Resposta da questão {j + 1}: ").lower()
+        if resp_aluno == gabarito[j]:
+            nota += 1
+
+    resultados_finais.append({
+        "matricula": matricula,
+        "nota": nota
+    })
+
+print("\n" + "=" * 30)
+print("       NOTAS DA TURMA")
+print("=" * 30)
+
+for aluno in resultados_finais:
+    print(f"Matrícula: {aluno['matricula']} | Nota: {aluno['nota']}.0")
