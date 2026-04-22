@@ -1,1 +1,42 @@
+distancias = [
+    [0, 15, 30, 5, 12],
+    [15, 0, 10, 17, 28],
+    [30, 10, 0, 3, 11],
+    [5, 17, 3, 0, 80],
+    [12, 28, 11, 80, 0]
+]
 
+# --- Parte A: Consultar distância entre duas cidades ---
+print("--- Consulta de Distância ---")
+origem = int(input("Digite a cidade de origem (0-4): "))
+destino = int(input("Digite a cidade de destino (0-4): "))
+
+if 0 <= origem <= 4 and 0 <= destino <= 4:
+    km = distancias[origem][destino]
+    print(f"A distância entre a cidade {origem} e a cidade {destino} é de {km} km.\n")
+else:
+    print("Cidade inválida!\n")
+
+# --- Parte B: Calcular distância total de um percurso ---
+print("--- Cálculo de Percurso Total ---")
+total_percorrido = 0
+quantidade_pares = int(input("Quantos pares de coordenadas terá seu percurso (máx 6)? "))
+
+if quantidade_pares > 6:
+    quantidade_pares = 6
+    print("Limite de 6 pares aplicado.")
+
+for i in range(quantidade_pares):
+    print(f"\nPar {i + 1}:")
+    c1 = int(input("  Cidade de partida: "))
+    c2 = int(input("  Cidade de chegada: "))
+
+    if 0 <= c1 <= 4 and 0 <= c2 <= 4:
+        trecho = distancias[c1][c2]
+        total_percorrido += trecho
+        print(f"  Trecho ({c1},{c2}) = {trecho} km")
+    else:
+        print("  Coordenada inválida! Trecho ignorado.")
+
+print("-" * 30)
+print(f"Distância Total Percorrida: {total_percorrido} km")
